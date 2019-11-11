@@ -93,14 +93,14 @@ class Game extends React.Component {
     if (calculateWinner(squares).winner || squares[i]) return
 
     squares[i] = this.state.xIsNext ? 'X' : 'O'
-    this.setState({
+    this.setState(state => ({
       history: history.concat([{
         squares: squares,
         pos: pos,
       }]),
       stepNumber: history.length,
-      xIsNext: !this.state.xIsNext,
-    })
+      xIsNext: !state.xIsNext,
+    }))
   }
 
   handleCheckbox(event) {
